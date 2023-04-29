@@ -1,8 +1,7 @@
-public class App {
-    public static void main(String[] args) {
-
-        System.out.println("The program has started!");
-        Server server = new Server();
-        server.start();
+public class App 
+{
+    public static void main( String[] args )
+    {
+        new HttpFileServer(8080, 1).start();
     }
 }

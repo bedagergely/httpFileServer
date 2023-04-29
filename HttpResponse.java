@@ -1,6 +1,7 @@
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 
-public class HTMLResponse {
+public class HttpResponse {
     private final String statusCode;
     private final LocalDateTime date;
     private final String server;
@@ -10,7 +11,7 @@ public class HTMLResponse {
     public final String connection;
     private String body;
 
-    public HTMLResponse() {
+    public HttpResponse() {
         statusCode = "200 OK";
         date = LocalDateTime.now();
         server = "JavaNoDependencyServer/1.0.0 (JVM)";
@@ -32,13 +33,17 @@ public class HTMLResponse {
 
     public String toString() {
         return "HTTP/1.1 " + this.statusCode + "\n" +
-                "Date:" + this.date.toString() + "\n" +
-                "Server: " + this.server + "\n" +
-                "Last-Modified: " + this.lastModified + "\n" +
-                "Content-Length: " + this.contentLength + "\n" +
-                "Content-Type: " + this.contentType + "\n" +
-                "Connection: " + this.connection + "\n" +
-                "\n" +
-                this.body;
+               "Date:" + this.date.toString() + "\n" +
+               "Server: " + this.server + "\n" +
+               "Last-Modified: " + this.lastModified + "\n" +
+               "Content-Length: " + this.contentLength + "\n" +
+               "Content-Type: " + this.contentType + "\n" +
+               "Connection: " + this.connection + "\n" +
+               "\n" +
+               this.body;
+    }
+
+    public byte[] getBytes() {
+        return this.toString().getBytes(StandardCharsets.UTF_8);
     }
 }
