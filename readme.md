@@ -15,6 +15,3 @@
 
 ## Use
 Open browser and search your html file at localhost:8080/[HTML FILE NAME]
-
-## Stop
-Open browser and go to localhost:8080/stop
